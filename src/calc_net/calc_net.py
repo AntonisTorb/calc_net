@@ -5,12 +5,13 @@ from tkinter import ttk
 class Calc:
 
     def __init__(self):
-        ("")
+        '''Calculate net weight of fruit shipments.'''
 
         self.previous_evt = ""
 
 
     def reset(self):
+        '''Reset all fields to zero.'''
         
         self.entry_gross.delete(0,tk.END)
         self.entry_gross.insert(0,"0")
@@ -36,6 +37,8 @@ class Calc:
 
     
     def calculate(self, event=None):
+        '''Calculate weight reductions from various factors, calulate the net weight,
+        and update the relevant GUI fields.'''
 
         if event.keysym == 'Control_L' or event.keysym == 'Control_R':
             self.previous_evt = "ctrl"
@@ -93,6 +96,7 @@ class Calc:
 
 
     def context_menu(self, event):
+        '''Right click context menu to copy net weight value.'''
 
         try:
             self.menu.tk_popup(event.x_root,event.y_root) # Pop the menu up in the given coordinates
@@ -101,6 +105,7 @@ class Calc:
 
 
     def copy_cmd(self):
+        '''Copy the net weight value to the clipboard.'''
 
         net_val = self.net_val.get()
         self.root.clipboard_clear()
@@ -108,6 +113,7 @@ class Calc:
 
 
     def main_gui(self):
+        '''GUI for the application.'''
 
         self.root = tk.Tk()
         self.root.configure(background="lightblue")
@@ -187,5 +193,6 @@ class Calc:
 
 
 def main_gui():
+    
     calc = Calc()
     calc.main_gui()
