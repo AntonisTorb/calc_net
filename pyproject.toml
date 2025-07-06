@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+version = "0.0.1"
+name = "calc_net"
+requires-python = ">= 3.9"
+
+[project.scripts]
+calc_net = "calc_net:main_gui"
